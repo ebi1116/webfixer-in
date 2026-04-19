@@ -376,6 +376,28 @@ h3 {
   color: var(--muted);
 }
 
+.live-link {
+  width: fit-content;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 18px;
+  padding: 11px 16px;
+  color: #fff;
+  background: var(--green);
+  border-radius: 8px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(18, 140, 94, 0.22);
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.live-link:hover,
+.live-link:focus-visible {
+  background: var(--green-dark);
+  transform: translateY(-2px);
+}
+
 .process {
   background: #fff;
 }
