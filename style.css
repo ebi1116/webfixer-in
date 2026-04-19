@@ -356,6 +356,8 @@ h3 {
   grid-template-columns: 0.7fr 1fr;
   gap: 24px;
   align-items: center;
+  position: relative;
+  overflow: hidden;
   padding: 26px;
   background: var(--surface);
   border: 1px solid var(--line);
@@ -363,9 +365,52 @@ h3 {
   box-shadow: 0 8px 28px rgba(16, 24, 40, 0.06);
 }
 
+.work-item::before,
+.work-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.work-item::before {
+  background: var(--project-bg) center / cover no-repeat;
+  transform: scale(1.03);
+  transition: transform 260ms ease;
+}
+
+.work-item::after {
+  background: linear-gradient(90deg, rgba(16, 24, 40, 0.9), rgba(16, 24, 40, 0.7));
+}
+
+.work-item:hover::before {
+  transform: scale(1.07);
+}
+
+.work-item > * {
+  position: relative;
+  z-index: 1;
+}
+
+.project-broadmax {
+  --project-bg: url("https://ebi1116.github.io/broadmax/Images/B-png.png");
+}
+
+.project-broadmax::before {
+  background-color: #05070d;
+  background-size: min(42vw, 260px) auto;
+}
+
+.project-travelers {
+  --project-bg: url("https://ebi1116.github.io/travelers/Images/agra.jpg");
+}
+
+.project-apex {
+  --project-bg: url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80");
+}
+
 .work-tag {
   margin: 0 0 8px;
-  color: var(--green);
+  color: var(--gold);
   font-size: 0.82rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -373,7 +418,11 @@ h3 {
 }
 
 .work-item p:last-child {
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.work-item h3 {
+  color: #fff;
 }
 
 .live-link {
